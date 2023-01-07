@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Methodology</title>
+    <link rel="icon" href="/static/src/logo-title.png" type="image/icon type">
+    <!-- Font Awesome -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet" />
+    <!-- MDB -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/6.0.1/mdb.min.css" rel="stylesheet" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Shippori+Mincho:wght@600&family=Source+Code+Pro&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="/static/css/styles.css">
+
+
+</head>
+
+<body>
+    <div class="index-nav-container">
+        <div class="nav-blank">
+          <center class="text-light" style="font-size: small; padding: 5px">Introducing DiagnoAI. Try it out <strong><a class="text-light" href{{ url_for( 'index' ) }}>now<span>&#8599;</span></a></strong></center>
+         </div>
+    
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <div class="container-fluid">
+              <!-- <a class="navbar-brand" href="#">Navbar</a> -->
+              <button
+                class="navbar-toggler"
+                type="button"
+                data-mdb-toggle="collapse"
+                data-mdb-target="#navbarNavAltMarkup"
+                aria-controls="navbarNavAltMarkup"
+                aria-expanded="false"
+                aria-label="Toggle navigation">
+                <i class="fas fa-bars"></i>
+              </button>
+              <div class="navbar-nav navbar-nav-div">
+                <a class="text-light" href{{ url_for( 'index' ) }}>
+                <img class="img-fluid" src="/static/src/logo.png" style="height: 50px;" alt=""></a>
+              </div>
+                
+              </div>
+              <div class="collapse navbar-collapse justify-content-end" id="navbarNavAltMarkup">
+                <div class="navbar-nav navbar-nav-div">
+                    <a class="nav-link" aria-current="page" href={{ url_for( 'index' ) }}><span class="nav-text">Home</span></a>
+                    <a class="nav-link" href={{ url_for( 'about' ) }}><span class="nav-text">About</span></a></li>
+                    <a class="nav-link" href={{ url_for( 'devs' ) }}><span class="nav-text">Developers</span></a>
+                </div>
+              </div>
+            </div>
+        </nav>
+        </div>
+
+    <div class="methodology-body">
+
+        <h1 class="display-1" style="font-family: 'Shippori Mincho', serif;">Methodology</h1>
+
+
+                <div class="methodology-intro">
+
+            <p>
+                The following are the working methodologies that were undertaken:
+            </p>
+
+        </div>
+
+
+        <ol style="font-size: 23px; font-family: 'Times New Roman', Times, serif;">
+            <li>
+                <div class="dataset-section">
+
+                    <h1>Dataset</h1>
+
+
+                    <p>We created a dataset containing 24 disease and 50 manually written descriptions of the
+                        symptoms
+                        (in
+                        english) for each disease. The disease names, symptoms and precautions where chosen Disease
+                        Symptom
+                        Prediction dataset<sup><a href="#R1">
+                                [1]</a></sup>
+                        from Kaggle.
+                    </p>
+
+                    <p>Hence, a total 1200 descriptions were created, out of which 80% was used
+                        for model training
+                        and remaining 20% for validation and testing purposes.
+                        An example of a data instance:
+                    </p>
+
+                    <div style="margin-left: 5%; margin-right: 10%; margin-top: 50px">
+
+                        <div class="row" style="background-color: aliceblue; border-radius: 10px 10px 0 0;">
+                            <div class="col-sm-2">
+                                <p>Description: </p>
+                            </div>
+                            <div class="col-sm-10">
+                                <p><span
+                                        style="font-family: 'Times New Roman', Times, serif; color: rgb(0, 154, 41); font-size: 20px;">
+                                        There are small red spots all over my body that I can't explain. It's
+                                        worrying
+                                        me.
+                                        I feel extremely tired and experience a mild fever every night.</span>
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="row" style="background-color: aliceblue; border-radius: 0 0 10px 10px;">
+                            <div class="col-sm-2">
+                                <p>Disease: </p>
+                            </div>
+                            <div class="col-sm-10">
+                                <p><span
+                                        style="font-family: 'Times New Roman', Times, serif; color: rgb(0, 154, 41); font-size: 20px;">
+                                        Chicken Pox</span>
+                                </p>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </li>
+
+            <li style="margin-top: 50px;">
+
+                <div class="training-section">
+
+                    <h1>Model Training</h1>
+
+                    <p>Because of limited data, we decided to fine tune a pretrained language model. We chose the
+                        pre
+                        trained BERT<sup><a href="#R4">[4]</a></sup> model
+                        from Hugging Face<sup><a href="#R2">[2]</a></sup> and its
+                        corresponding tokenizer for tokenizing the sentences. TensorFlow<sup><a href="#R3">[3]</a> </sup>was
+                        used
+                        as the base framework
+                        for loading and training the model.
+                    </p>
+
+                    <p>Upon experimentation, we found that unfreezing the BERT layer helped acheive a better training
+                        and
+                        validation accuracy. Hence, we decided
+                        to go keep the complete model trainable.
+                    </p>
+
+                    <p>
+                        The model was trained with the following parameters:
+                        <ul class=" model-parameters">
+                            <li>
+                                Loss function: <span style="font-style: italic;">SparseCategoricalCrossentropy</span>
+                            </li>
+                            <li>
+                                Optimizer: <span style="font-style: italic;">Adam</apan>
+                            </li>
+                            <li>
+                                Learning Rate: <span style="font-style: italic;">0.00003</span>
+                            </li>
+
+                            <li>
+                                Epochs: <span style="font-style: italic;">5</span>
+                            </li>
+
+                        </ul>
+                    </p>
+
+
+                    <img class="img-fluid" src="/static/src/model_plot.png" alt="model plot" style="padding: 0 5% 0 5%;">
+                    <p style="margin:2px 0; font-size: 18px; text-align: center;">Fig: Tool overview</p>
+
+                </div>
+
+            </li>
+
+            <li>
+
+                <div class="testing-section">
+
+                    <h1>Testing</h1>
+
+                    <p>After training, we acheived a training accuracy of 100.00% and vadlidation accuracy of 98.33%.
+                        Although,
+                        the misclassification
+                        rate is quite low, we can't be completely sure of the model's predictions as it trained on a
+                        relatively
+                        smaller corpus.
+                    </p>
+                    <p>
+                        We plan to increase the dataset in future so that the model can generalize better and not suffer
+                        from
+                        overconfidence.
+                    </p>
+                </div>
+
+            </li>
+
+
+            <li>
+
+                <div class="references-section">
+
+                    <h1>References</h1>
+
+                    <p>[1] <a id="R1"
+                            href="https://www.kaggle.com/datasets/itachi9604/disease-symptom-description-dataset"
+                            target="_blank">
+                            Kaggle - Disease Symptom Dataset</a></p>
+
+                    <p>[2] <a id="R2" href="https://huggingface.co/docs/transformers/model_doc/bert" target="_blank">
+                            Hugging Face - BERT
+                        </a>
+                    </p>
+
+                    <p>[3] <a id="R3" href="https://www.tensorflow.org/" , target="_blank">
+                            TensorlFlow
+                        </a>
+                    </p>
+
+                    <p>[4] <a id="R4" href="https://arxiv.org/abs/1810.04805">
+                            Devlin, Jacob, et al. "Bert: Pre-training of deep bidirectional transformers for language
+                            understanding."
+                        </a>
+
+                    </p>
+
+                </div>
+
+            </li>
+
+        </ol>
+
+
+    </div>
+
+    <footer class="bg-dark text-center text-footer">
+        <!-- Grid container -->
+        <div class="container p-4 pb-0">
+            <!-- Section: Social media -->
+            <section class="mb-4">
+                <p>
+                    DiseaseNLP is a machine learning tool that was developed to assist in the diagnosis of various
+                    medical conditions. It uses advanced algorithms to analyze patient symptoms and provide estimates of
+                    possible diagnoses. 
+                </p>
+                
+            </section>
+            <!-- Section: Social media -->
+        </div>
+        <!-- Grid container -->
+
+        <!-- Copyright -->
+        <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);">
+            © 2023 Copyright. All Rights Reserved
+        </div>
+        <!-- Copyright -->
+    </footer>
+
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/6.0.1/mdb.min.js"></script>
+
+
+
+</body>
+
+</html>

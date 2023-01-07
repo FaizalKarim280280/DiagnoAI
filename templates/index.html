@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Home</title>
-
+  <link rel="icon" href="/static/src/logo-title.png" type="image/icon type">
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet" />
   <link href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/6.0.1/mdb.min.css" rel="stylesheet" />
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -36,7 +36,8 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
           <div class="navbar-nav navbar-nav-div">
-            Logo
+            <a class="text-light" href{{ url_for( 'index' ) }}>
+            <img class="img-fluid" src="/static/src/logo.png" style="height: 50px;" alt=""></a>
           </div>
 
         </div>
@@ -156,14 +157,14 @@
           <br><br><strong>Note: </strong>These are merely estimates and a proper diagnosis can only be made through
           medical examination and testing. It is important to visit a healthcare professional as soon as possible to
           determine the cause of your symptoms and receive proper treatment.
-          <br><br>
-          Click on the disease to know more about it.
+          <!-- <br><br>
+          Click on the disease to know more about it. -->
         </h5>
       </div>
 
       {% endif %}
       {% endif %}
-      {% if remedies_list|length == 0 %}
+      <!-- {% if remedies_list|length == 0 %}
 
       {% else %}
       <section id="Rem-1" class="Remedy-1" style="display: none;">
@@ -180,8 +181,8 @@
         <div class="note note-light mb-3">
           <strong>{{prediction_text[2]['label']}}:</strong> {{remedies_list[2]}}
         </div>
-      </section>
-      {% endif %}
+      </section>  
+      {% endif %} -->
   </div>
   </section>
   </div>
@@ -217,7 +218,7 @@
 
   <!-- MDB -->
   <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/6.0.1/mdb.min.js"></script>
-  <script>
+  <!-- <script>
     let remedy1 = document.querySelector(".Remedy-1");
     let remedy2 = document.querySelector(".Remedy-2");
     let remedy3 = document.querySelector(".Remedy-3");
@@ -248,7 +249,7 @@
         remedy3.style.display = "block";
       }
     }
-  </script>
+  </script> -->
 
 </body>
 

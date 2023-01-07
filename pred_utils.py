@@ -8,6 +8,7 @@ class Model:
 
     def __init__(self, label2id=None, id2label=None):
         if label2id is None:
+            # label -> id mapping
             self.label2id = {'Psoriasis': 0,
                              'Varicose Veins': 1,
                              'Typhoid': 2,
@@ -33,6 +34,7 @@ class Model:
                              'Jaundice': 22,
                              'Malaria': 23}
         if id2label is None:
+            # id -> label mapping
             self.id2label = {0: 'Psoriasis',
                              1: 'Varicose Veins',
                              2: 'Typhoid',
@@ -59,11 +61,14 @@ class Model:
                              23: 'Malaria'}
         self.num_classes = len(self.label2id)
 
+    # load the associated tokenizer of BERT 
     @staticmethod
     def tokenizer():
         tokenizer = AutoTokenizer.from_pretrained("bert-base-cased")
         return tokenizer
 
+    # define the model as it was and load the weights
+    # training is not done
     def model(self):
         model = TFAutoModelForSequenceClassification.from_pretrained(
             "bert-base-cased",
@@ -81,6 +86,7 @@ class Model:
 
         return model
 
+# class to predict the disease and send it back to app.py
 
 class Predict:
     

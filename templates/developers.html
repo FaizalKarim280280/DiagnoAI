@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Developers</title>
+  <link rel="icon" href="/static/src/logo-title.png" type="image/icon type">
+  <!-- Font Awesome -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet" />
+  <!-- MDB -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/6.0.1/mdb.min.css" rel="stylesheet" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+
+
+  <link rel="stylesheet" href="/static/css/styles.css">
+
+</head>
+
+<body class="index-body">
+
+
+  <div class="index-nav-container">
+    <div class="nav-blank">
+      <center class="text-light" style="font-size: small; padding: 5px">Introducing DiagnoAI. Try it out <strong><a
+            class="text-light" href{{ url_for( 'index' ) }}>now<span>&#8599;</span></a></strong></center>
+    </div>
+
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <div class="container-fluid">
+        <button class="navbar-toggler" type="button" data-mdb-toggle="collapse" data-mdb-target="#navbarNavAltMarkup"
+          aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+          <i class="fas fa-bars"></i>
+        </button>
+        <div class="navbar-nav navbar-nav-div">
+          <a class="text-light" href{{ url_for( 'index' ) }}>
+          <img class="img-fluid" src="/static/src/logo.png" style="height: 50px;" alt=""></a>
+        </div>
+
+        </div>
+        <div class="collapse navbar-collapse justify-content-end" id="navbarNavAltMarkup">
+          <div class="navbar-nav navbar-nav-div">
+            <a class="nav-link" aria-current="page" href={{ url_for( 'index' ) }}><span class="nav-text">Home</span></a>
+            <a class="nav-link" href={{ url_for( 'about' ) }}><span class="nav-text">About</span></a></li>
+            <a class="nav-link" href={{ url_for( 'devs' ) }}><span class="nav-text">Developers</span></a>
+          </div>
+        </div>
+      </div>
+    </nav>
+  </div>
+
+
+  <div class="dev-container">
+
+    <div class="row">
+      <div class="col-md-3 dev-person">
+        <div class="image1">
+
+          <img class="img-dev img-fluid" src="/static/src/krish.jpeg" alt="" style="height: 200px; width: 200px;">
+
+        </div>
+        <div class="dev-info dev-person">
+
+          <h3 style="font-weight: bold;">Krish Sharma</h3>
+          <p>2nd year EIE, NIT Silchar </p>
+          <div style="display: inline">
+            <a href="https://www.linkedin.com/in/krish-sharma-1074b6224/"><i class="fab fa-lg fa-linkedin-in" style="margin-right: 10px;"></i></a>
+            <a href="https://github.com/Krish2002"><i class="fab fa-lg fa-github"></i></a>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-3 dev-person">
+        <div class="image1">
+
+          <img class="img-dev img-fluid" src="/static/src/faizal.png" alt="" style="height: 200px; width: 200px;">
+
+        </div>
+        <div class="dev-info dev-person">
+
+          <h3 style="font-weight: bold;"> Md Faizal Karim</h3>
+          <p>2nd year CSD, IIIT Hyderabad</p>
+          <div style="display: inline;">
+            <a href="https://www.linkedin.com/in/md-faizal-karim-720160217/"><i class="fab fa-lg fa-linkedin-in" style="margin-right: 10px;"></i></a>
+            <a href="https://github.com/FaizalKarim280280"><i class="fab fa-lg fa-github"></i></a>
+          </div>
+        </div>
+      </div>
+
+    <div class="col-md-3 dev-person">
+      <div class="image1">
+
+        <img class="img-dev img-fluid" src="/static/src/niyar.jpeg" alt="" style="height: 200px; width: 200px;">
+
+      </div>
+      <div class="dev-info dev-person">
+
+        <h3 style="font-weight: bold;">Niyar Barman</h3>
+        <p>2nd year ECE, NIT Silchar</p>
+        <div style="display: inline">
+          <a href="https://www.linkedin.com/in/niyar/"><i class="fab fa-lg fa-linkedin-in" style="margin-right: 10px;"></i></a>
+          <a href="https://github.com/niyarrbarman"><i class="fab fa-lg fa-github"></i></a>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-3 dev-person">
+      <div class="image1">
+
+        <img class="img-dev img-fluid" src="/static/src/hirak.jpeg" alt="" style="height: 200px; width: 200px;">
+
+      </div>
+      <div class="dev-info dev-person">
+
+        <h3 style="font-weight: bold;">Hirak Jyoti Deka</h3>
+        <p>3rd year EIE, MIT Manipal</p>
+        <div style="display: inline">
+          <a href="https://www.linkedin.com/in/hirakjyoti-roy-785b62218"><i class="fab fa-lg fa-linkedin-in" style="margin-right: 10px;"></i></a>
+          <a href="https://github.com/HirakJR"><i class="fab fa-lg fa-github"></i></a>
+        </div>
+
+      </div>
+
+    </div>
+  </div>
+
+  </div>
+
+
+  <footer class="bg-dark text-center text-footer fixed-bottom">
+    <!-- Grid container -->
+    <div class="container p-4 pb-0">
+      <!-- Section: Social media -->
+      <section class="mb-4">
+        <p>
+          DiagnoAI is a machine learning tool that was developed to assist in the diagnosis of various
+          medical conditions. It uses advanced algorithms to analyze patient symptoms and provide estimates of
+          possible diagnoses.
+        </p>
+
+        <p>To learn more about the development and technology behind DiagnoAI: <a class="text-white" href={{
+            url_for( 'method' ) }}>Click Here</a>
+        </p>
+      </section>
+      <!-- Section: Social media -->
+    </div>
+    <!-- Grid container -->
+
+    <!-- Copyright -->
+    <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);">
+      © 2023 Copyright. All Rights Reserved
+    </div>
+    <!-- Copyright -->
+  </footer>
+
+
+  <!-- MDB -->
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/6.0.1/mdb.min.js"></script>
+
+</body>
+
+</html>

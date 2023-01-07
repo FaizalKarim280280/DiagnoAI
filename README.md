@@ -1,1 +1,1 @@
-# DiagnoAI
+# Disease-NLP

@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Home</title>
+
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet" />
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/6.0.1/mdb.min.css" rel="stylesheet" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="/static/css/styles.css">
+
+</head>
+
+<body class="index-body">
+
+
+  <!-- <hr> -->
+  <div class="index-nav-container">
+    <div class="nav-blank">
+      <center class="text-light" style="font-size: small; padding: 5px">Introducing DiagnoAI. Try it out <strong><a
+            class="text-light" href{{ url_for( 'index' ) }}>now<span>&#8599;</span></a></strong></center>
+    </div>
+
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <div class="container-fluid">
+        <!-- <a class="navbar-brand" href="#">Navbar</a> -->
+        <button class="navbar-toggler" type="button" data-mdb-toggle="collapse" data-mdb-target="#navbarNavAltMarkup"
+          aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+          <i class="fas fa-bars"></i>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+          <div class="navbar-nav navbar-nav-div">
+            Logo
+          </div>
+
+        </div>
+        <div class="collapse navbar-collapse justify-content-end" id="navbarNavAltMarkup">
+          <div class="navbar-nav navbar-nav-div">
+            <a class="nav-link" aria-current="page" href={{ url_for( 'index' ) }}><span class="nav-text">Home</span></a>
+            <a class="nav-link" href={{ url_for( 'about' ) }}><span class="nav-text">About</span></a></li>
+            <a class="nav-link" href={{ url_for( 'devs' ) }}><span class="nav-text">Developers</span></a>
+          </div>
+        </div>
+      </div>
+    </nav>
+  </div>
+
+
+  <div class="index-container" style="margin-bottom: 50px;">
+    <div class="">
+      <div class="row">
+
+        <div class="col-md-6">
+          <h2 class="display-5" style="font-family: 'Roboto', sans-serif; color:#000;">DiagnoAI: Predictive Diagnosis
+            just a Line Away</h2>
+          <p style="font-size: 20px; color: #111111;">
+            DiagnoAI is a tool to detect a disease from a text description of the patient's symptoms and daily
+            condition.
+            It is based on a transformer model called BERT, fine-tuned for 24 common diseases.
+          </p>
+
+          <div style="margin-top: 20%;">
+            <a class="btn text-white" style="background-color: #111111;" href="#Simulation" role="button">
+              <span style="font-weight: 600;;">Try Simulation <span>&#8599;</span></span>
+            </a>
+          </div>
+
+        </div>
+
+        <div class="col-md-6">
+          <div style="display: flex; flex-direction: column; justify-content: center; align-items: center;">
+            <video autoplay muted loop style="width:450px">
+              <source src="/static/src/home-hospital-stock-vid.mp4" type="video/mp4">
+            </video>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </div>
+
+  <center class="typo-vid-center">
+    <div class="ratio ratio-16x9 w-50 p-3 typo-vid">
+      <video autoplay muted loop style="border-radius: 30px;">
+        <source src="/static/src/kinetic-typo-vid.mp4" type="video/mp4">
+      </video>
+    </div>
+  </center>
+
+  <div class="index-container">
+
+    <div class="home-vid-div">
+      <div class="ratio ratio-16x9 vid">
+        <iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/REzBJBgqhko"
+          title="YouTube video player" frameborder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+          allowfullscreen></iframe>
+        <!-- <video width="320" height="240" controls muted loop>
+            <source src="/static/src/video.mp4" type="video/mp4">
+          </video> -->
+      </div>
+      <div class="vid-text">
+        <h3 style="font-size:large;">
+          Watch the video to understand the proper way to write a prompt
+        </h3>
+      </div>
+
+    </div>
+
+    <section id="Simulation">
+      <form action="{{ url_for('predict')}}" method="post">
+
+        <div class="">
+
+          <div class="d-grid gap-2 col-10 mx-auto">
+            <textarea class="form-control" name="Symptoms" type="text" placeholder="Enter Symptoms"
+              aria-label="default input example" required="required" rows=2 style="resize: none; "></textarea>
+          </div>
+
+          <br><br>
+          <div class="d-grid gap-2 col-md-1 mx-auto">
+            <button type="submit" class="btn btn-dark btn-rounded">Run</button>
+          </div>
+        </div>
+
+      </form>
+      <br><br>
+      <div class="d-grid gap-2 col-8 mx-auto prediction-div">
+        {% if prediction_text|length == 0 %}
+
+        {% else %}
+        {% if prediction_text[0]['score'] < 0.3 %} <div class="note note-danger mb-3">
+          <h5 class="h5-pred"><strong>Note: </strong>Symptoms are currently indeterminate. Please provide more specific
+            information for accurate diagnosis.</h5>
+      </div>
+
+      {% else %}
+      {% set p1 = prediction_text[0]['score'] * 100 %}
+      {% set p2 = prediction_text[1]['score'] * 100 %}
+      {% set p3 = prediction_text[2]['score'] * 100 %}
+      <div class="note note-secondary mb-3">
+        <h5 class="h5-pred">After reviewing your symptoms, it is our professional assessment that there is a {{'%0.2f' %
+          p1|float}}% possibility that you are experiencing <strong><a onclick="showRem1()" href="#Rem-1"
+              class="text-dark">{{prediction_text[0]['label']}}</a></strong>. There is also a {{'%0.2f' % p2|float}}%
+          chance that you may be suffering from <strong><a onclick="showRem2()" href="#Rem-2"
+              class="text-dark">{{prediction_text[1]['label']}}</a></strong>, and a {{'%0.2f' % p3|float}}% chance that
+          you may have <strong><a onclick="showRem3()" href="#Rem-3"
+              class="text-dark">{{prediction_text[2]['label']}}</a></strong>.
+          <br><br><strong>Note: </strong>These are merely estimates and a proper diagnosis can only be made through
+          medical examination and testing. It is important to visit a healthcare professional as soon as possible to
+          determine the cause of your symptoms and receive proper treatment.
+          <br><br>
+          Click on the disease to know more about it.
+        </h5>
+      </div>
+
+      {% endif %}
+      {% endif %}
+      {% if remedies_list|length == 0 %}
+
+      {% else %}
+      <section id="Rem-1" class="Remedy-1" style="display: none;">
+        <div class="note note-light mb-3">
+          <strong>{{prediction_text[0]['label']}}:</strong> {{remedies_list[0]}}
+        </div>
+      </section>
+      <section id="Rem-2" class="Remedy-2" style="display: none;">
+        <div class="note note-light mb-3">
+          <strong>{{prediction_text[1]['label']}}:</strong> {{remedies_list[1]}}
+        </div>
+      </section>
+      <section id="Rem-3" class="Remedy-3" style="display: none;">
+        <div class="note note-light mb-3">
+          <strong>{{prediction_text[2]['label']}}:</strong> {{remedies_list[2]}}
+        </div>
+      </section>
+      {% endif %}
+  </div>
+  </section>
+  </div>
+  <!-- Footer -->
+  <!-- Footer -->
+  <footer class="bg-dark text-center text-footer">
+    <!-- Grid container -->
+    <div class="container p-4 pb-0">
+      <!-- Section: Social media -->
+      <section class="mb-4">
+        <p>
+          DiagnoAI is a machine learning tool that was developed to assist in the diagnosis of various
+          medical conditions. It uses advanced algorithms to analyze patient symptoms and provide estimates of
+          possible diagnoses.
+        </p>
+
+        <p>To learn more about the development and technology behind DiagnoAI: <a class="text-white" href={{
+            url_for( 'method' ) }}>Click Here</a>
+        </p>
+      </section>
+      <!-- Section: Social media -->
+    </div>
+    <!-- Grid container -->
+
+    <!-- Copyright -->
+    <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);">
+      © 2023 Copyright. All Rights Reserved
+    </div>
+    <!-- Copyright -->
+  </footer>
+  <!-- Footer -->
+  <!-- Footer -->
+
+  <!-- MDB -->
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/6.0.1/mdb.min.js"></script>
+  <script>
+    let remedy1 = document.querySelector(".Remedy-1");
+    let remedy2 = document.querySelector(".Remedy-2");
+    let remedy3 = document.querySelector(".Remedy-3");
+    function showRem1() {
+      if (remedy1.style.display !== "none") {
+        remedy1.style.display = "none";
+      } else {
+        remedy1.style.display = "block";
+        remedy2.style.display = "none";
+        remedy3.style.display = "none";
+      }
+    }
+    function showRem2() {
+      if (remedy2.style.display !== "none") {
+        remedy2.style.display = "none";
+      } else {
+        remedy1.style.display = "none";
+        remedy2.style.display = "block";
+        remedy3.style.display = "none";
+      }
+    }
+    function showRem3() {
+      if (remedy3.style.display !== "none") {
+        remedy3.style.display = "none";
+      } else {
+        remedy1.style.display = "none";
+        remedy2.style.display = "none";
+        remedy3.style.display = "block";
+      }
+    }
+  </script>
+
+</body>
+
+</html>

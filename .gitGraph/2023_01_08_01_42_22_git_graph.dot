@@ -1,0 +1,40 @@
+digraph auto {
+	graph [bgcolor=transparent]
+	node [fixedsize=true style=filled width=0.95]
+	"72d18430034e0cc433a954e82799069756405526" [label="72d1843" fillcolor="#9ccc66"]
+	"82cf191306ea0018b2dd42ed856d4eb347526f25" [label="82cf191" fillcolor="#9ccc66"]
+	bf9163506c27d663b2a83134ab3650d584f48096 [label=bf91635 fillcolor="#9ccc66"]
+	d4993fc479c28e0fbc127ec5f11502921929c849 [label=d4993fc fillcolor="#9ccc66"]
+	d73cf916cc2adf58de42cea332d352049af2da2f [label=d73cf91 fillcolor="#9ccc66"]
+	e48c4497677fc6617895e26375028f1bb465738d [label=e48c449 fillcolor="#9ccc66"]
+	"8b9231db19589a2402af4fb088657d4a4faf5946" [label="8b9231d" fillcolor="#bc9b8f"]
+	"8b9231db19589a2402af4fb088657d4a4faf5946" -> "82cf191306ea0018b2dd42ed856d4eb347526f25"
+	fcabd0e8b24f295f8172863dfb46806b0a72bc94 [label=fcabd0e fillcolor="#bc9b8f"]
+	fcabd0e8b24f295f8172863dfb46806b0a72bc94 -> e48c4497677fc6617895e26375028f1bb465738d
+	fcabd0e8b24f295f8172863dfb46806b0a72bc94 -> "72d18430034e0cc433a954e82799069756405526"
+	fcabd0e8b24f295f8172863dfb46806b0a72bc94 -> d73cf916cc2adf58de42cea332d352049af2da2f
+	fcabd0e8b24f295f8172863dfb46806b0a72bc94 -> d4993fc479c28e0fbc127ec5f11502921929c849
+	fcabd0e8b24f295f8172863dfb46806b0a72bc94 -> bf9163506c27d663b2a83134ab3650d584f48096
+	"6b1bad5e3274acc94968fbfa9b4f83a05d7308e7" [label="6b1bad5" fillcolor="#85d5fa"]
+	"6b1bad5e3274acc94968fbfa9b4f83a05d7308e7" -> fcabd0e8b24f295f8172863dfb46806b0a72bc94
+	"6b1bad5e3274acc94968fbfa9b4f83a05d7308e7" -> "9f6ce0442e3c2046ca0879c5f6ee4ea445ec4e33"
+	"9f6ce0442e3c2046ca0879c5f6ee4ea445ec4e33" [label="9f6ce04" fillcolor="#85d5fa"]
+	"9f6ce0442e3c2046ca0879c5f6ee4ea445ec4e33" -> "8b9231db19589a2402af4fb088657d4a4faf5946"
+	main [label=main fillcolor="#9999ff"]
+	main -> "9f6ce0442e3c2046ca0879c5f6ee4ea445ec4e33"
+	niyar [label=niyar fillcolor="#9999ff"]
+	niyar -> "9f6ce0442e3c2046ca0879c5f6ee4ea445ec4e33"
+	HEAD [label=HEAD fillcolor="#e6ccff"]
+	HEAD -> niyar
+	"origin/faizal" [label=faizal fillcolor="#ffa366"]
+	"origin/faizal" -> "6b1bad5e3274acc94968fbfa9b4f83a05d7308e7"
+	"origin/main" [label=main fillcolor="#ffa366"]
+	"origin/main" -> "9f6ce0442e3c2046ca0879c5f6ee4ea445ec4e33"
+	"origin/HEAD" [label=HEAD fillcolor="#ffbeb3"]
+	"origin/HEAD" -> "origin/main"
+	origin [label=origin fillcolor="#ff6666"]
+	origin -> "origin/faizal"
+	origin -> "origin/main"
+	origin -> "origin/HEAD"
+	"origin/main" -> main
+}

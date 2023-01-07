@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About</title>
+
+    <!-- Font Awesome -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet" />
+    <!-- MDB -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/6.0.1/mdb.min.css" rel="stylesheet" />
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Shippori+Mincho:wght@600&family=Source+Code+Pro&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="/static/css/styles.css">
+
+</head>
+
+<body>
+
+    <div class="index-nav-container">
+        <div class="nav-blank">
+          <center class="text-light" style="font-size: small; padding: 5px">Introducing DiagnoAI. Try it out <strong><a class="text-light" href{{ url_for( 'sim' ) }}>now<span>&#8599;</span></a></strong></center>
+         </div>
+    
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <div class="container-fluid">
+              <!-- <a class="navbar-brand" href="#">Navbar</a> -->
+              <button
+                class="navbar-toggler"
+                type="button"
+                data-mdb-toggle="collapse"
+                data-mdb-target="#navbarNavAltMarkup"
+                aria-controls="navbarNavAltMarkup"
+                aria-expanded="false"
+                aria-label="Toggle navigation">
+                <i class="fas fa-bars"></i>
+              </button>
+              <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+                <div class="navbar-nav navbar-nav-div">
+                  Logo
+                </div>
+                
+              </div>
+              <div class="collapse navbar-collapse justify-content-end" id="navbarNavAltMarkup">
+                <div class="navbar-nav navbar-nav-div">
+                    <a class="nav-link" aria-current="page" href={{ url_for( 'index' ) }}><span class="nav-text">Home</span></a>
+                    <a class="nav-link" href={{ url_for( 'about' ) }}><span class="nav-text">About</span></a></li>
+                    <a class="nav-link" href={{ url_for( 'devs' ) }}><span class="nav-text">Developers</span></a>
+                </div>
+              </div>
+            </div>
+        </nav>
+        </div>
+    <div class="about-body" style="text-align: justify;">
+
+        
+        <h1 class="display-1" style="font-family: 'Shippori Mincho', serif;">About</h1>
+
+        <div class="about-intro">
+
+            <p style="font-style: italic;"><b>Disease NLP</b> is a tool to detect a disease from a text description of
+                the
+                patient's symptoms and daily
+                condition. It is based on a transformer model called BERT<sup><a
+                        href="https://arxiv.org/pdf/1810.04805.pdf" target="_blank">[1]</a></sup>, fine-tuned for 24
+                common diseases.
+            </p>
+
+
+        </div>
+
+        <div class="about-motivation">
+            <h3 class="display-3">Motivation</h3>
+            <hr>
+
+            <div class="motivation-section">
+
+                <p>
+                    As healthcare systems worldwide continue to face challenges posed by the COVID-19 pandemic, there is
+                    an
+                    increasing need for innovative solutions to help individuals receive medical attention and care
+                    remotely.
+                    One such solution is a tool that can detect a person's disease based on a brief textual description
+                    of
+                    their
+                    symptoms and daily condition.
+                </p>
+
+                <p>
+                    People living in rural and under served areas may face barriers to visiting a doctor, such as
+                    transportation
+                    or COVID-19 restrictions. A tool that can detect diseases based on a description of symptoms could
+                    be a
+                    valuable resource for these individuals. It could allow them to receive a diagnosis remotely and
+                    potentially
+                    connect them with the appropriate treatment options.
+                </p>
+
+                <p>
+                    A tool that can detect diseases based on a description of symptoms could potentially reduce the
+                    number
+                    of
+                    in-person appointments needed, freeing up resources and easing the burden on healthcare systems.
+                    With
+                    the
+                    rise of tele medicine and remote healthcare options, it is becoming increasingly common for
+                    individuals
+                    to
+                    receive medical attention and care remotely.
+
+                </p>
+
+            </div>
+
+            <div style="display: flex; flex-direction: column; justify-content: center; align-items: center;">
+                <img class="img-fluid" src="/static/src/model-flow3.png" alt="model plot">
+                <p style="margin:10px 0; font-size: 18px; text-align: center;">Fig: Model architecture</p>
+            </div>
+        </div>
+
+        <div class="about-novelty">
+
+            <h3 class="display-3">Novelty</h3>
+            <hr>
+
+            <div class="novelty-section">
+
+                <p>
+                    There are limited tools on the internet that solves the task of disease diagnosis. This tool is
+                    different
+                    from the others because the user can express themself in natural language, thus enabling the user to
+                    describe the symptoms in detail. Most of the existing tools either rely on reserved keywords for the
+                    symptoms or a long list of questions which might be irrelevant to the user.
+                </p>
+
+                <p>
+                    There can be scenarios where a user might want to describe a symptom in a particular way which might
+                    not
+                    be
+                    present in
+                    the list of reserved keywords. Using a language model solves this problem as the model can be
+                    trained to
+                    understand
+                    the relationship between words, understand the context and finally, make the predictions.
+                </p>
+
+            </div>
+
+        </div>
+
+
+    </div>
+
+    <footer class="bg-dark text-center text-footer">
+        <!-- Grid container -->
+        <div class="container p-4 pb-0">
+            <!-- Section: Social media -->
+            <section class="mb-4">
+                <p>
+                    DiseaseNLP is a machine learning tool that was developed to assist in the diagnosis of various
+                    medical conditions. It uses advanced algorithms to analyze patient symptoms and provide estimates of
+                    possible diagnoses. 
+                </p>
+                
+                <p>To learn more about the development and technology behind DiseaseNLP: 
+                    <button class="btn btn-rounded btn-outline-success btn-sm"><a class="text-white" href={{ url_for( 'method' ) }}>Click Here</a></button>
+                </p>
+            </section>
+            <!-- Section: Social media -->
+        </div>
+        <!-- Grid container -->
+
+        <!-- Copyright -->
+        <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);">
+            © 2023 Copyright. All Rights Reserved
+        </div>
+        <!-- Copyright -->
+    </footer>
+
+
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/6.0.1/mdb.min.js"></script>
+
+
+</body>
+
+</html>

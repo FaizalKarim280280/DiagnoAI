@@ -1,0 +1,206 @@
+.index-body {
+    background-color: rgb(255, 255, 255);
+}
+
+/* .index-intro {
+    margin: 50px 20% 100px 20%;
+} */
+
+.index-container{
+    margin: 70px 20% 10px 20%;
+}
+.nav-text{
+    font-weight: 800;
+}
+
+/* .index-h1{
+    font-family: 'Roboto', sans-serif;
+} */
+
+.prediction-div {
+    text-align: justify;
+}
+
+.h5-pred {
+    line-height: 1.5;
+}
+
+.home-vid-div {
+    margin: 50px;
+    background-color: #000;
+    display: flex;
+    border-radius: 10px;
+    justify-content: space-around;
+    align-items: center;
+    text-align: center;
+}
+
+.vid{
+    flex: 2;
+    margin: 10px;
+}
+
+.navbar-nav-div{
+    margin-right: 200px;
+    margin-left: 200px;
+}
+
+.navbar-nav > li{
+    padding-left:50px;
+}
+
+.typo-vid{
+    display: flex;
+}
+.typo-vid-center{
+    padding: 100px;
+    background-color: #000;
+}
+
+.vid-text{
+    flex: 1;
+    margin: 10px;
+    color: #fff;
+}
+
+#Simulation{
+    margin-top: 100px;
+    margin-bottom: 80px;
+}
+
+.text-footer{
+    color: #A3A0A0;
+}
+
+
+.about-body {
+    background-color: rgb(255, 255, 255);
+    margin: 50px 20% 100px 20%;
+}
+
+.nav-blank{
+    background-color: black;
+}
+
+.form-outline {
+    width: 100%;
+    /* margin-top: 50px; */
+}
+
+.about-intro {
+    font-size: 23px;
+    margin-top: 50px;
+    font-family: 'Times New Roman', Times, serif;
+
+}
+
+.about-motivation {
+    font-size: 23px;
+    margin-top: 40px;
+    font-family: 'Times New Roman', Times, serif;
+}
+
+
+.about-novelty {
+    font-size: 23px;
+    margin-top: 50px;
+    font-family: 'Times New Roman', Times, serif;
+}
+
+.about-methodology li {
+    margin: 30px 0;
+}
+
+.model-parameters li {
+    margin: 5px;
+    list-style-type: '👉';
+    padding-inline-start: 1ch;
+}
+
+.methodology-body {
+    background-color: rgb(255, 255, 255);
+    margin: 50px 20% 100px 20%;
+    /* font-size: 23px; */
+}
+
+.methodology-intro {
+    margin-top: 50px;
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 23px;
+
+}
+
+.references::before {
+    display: inline-block;
+    content: counter(item) ") ";
+    counter-increment: item;
+}
+
+.motivation-section {
+    margin: 40px 0;
+}
+
+.novelty-section {
+    margin: 30px 0;
+}
+
+.dataset-section {
+    margin: 30px 0 50px 0;
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 23px;
+
+}
+
+.training-section {
+    margin: 30px 0 50px 0;
+    font-size: 23px;
+    font-family: 'Times New Roman', Times, serif;
+}
+
+.references-section {
+    margin: 30px 0 50px 0;
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 23px;
+
+}
+
+.testing-section {
+    margin: 30px 0 50px 0;
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 23px;
+
+}
+
+.text-footer{
+    color: #A3A0A0;
+}
+
+.dev-container{
+    /* padding-top: 7rem; */
+    margin: 10% 15% 100px 15%;
+}
+
+.dev-info{
+    padding-top: 5px;
+}
+
+.user-input-section {
+    display: flex;
+}
+
+.img-dev {
+    border-radius: 50%;
+}
+
+.dev-person {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.dev-container p {
+    margin: 0 0 5px 0;
+    font-size: large;
+}
+

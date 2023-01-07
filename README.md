@@ -45,3 +45,4 @@ We plan to increase the dataset in future so that the model can generalize bette
 2. [Hugging Face - BERT](https://huggingface.co/docs/transformers/model_doc/bert)
 3. [Tensorflow](https://www.tensorflow.org/)
 4. [Devlin, Jacob, et al. "Bert: Pre-training of deep bidirectional transformers for language understanding."](https://arxiv.org/abs/1810.04805)
+
